@@ -236,10 +236,10 @@
             <h4>1. Learnable Gaussian Feature Embedding \(\texttt{FE}_\phi\)</h4>
               <p>
                 Let \(\phi = \{(\mu_i, \Sigma_i, f_i): i=1, \dots, N\}\) be the set of Gaussian model parameters, 
-                where \(\mu_i \in \mathbb{R}^{d}\) is a position of a Gaussian, \(\Sigma_i \in \mathbb{S}^{d}_{++}\) 
+                where \(\mu_i \in \mathbb{R}^{k \times d}\) is a position of a Gaussian, \(\Sigma_i \in {\mathbb{S}^{d}_{++}}^{k}\) 
                 is a covariance matrix, and each Gaussian has a learnable feature embedding 
-                \(f_i \in \mathbb{R}\). Given an input coordinate \(x \in \mathbb{R}^d\), the learnable Gaussian feature embedding 
-                \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}\) is extracted as follows:
+                \(f_i \in \mathbb{R}^{k}\). Given an input coordinate \(x \in \mathbb{R}^d\), the learnable Gaussian feature embedding 
+                \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{k}\) is extracted as follows:
               </p>
               <div class="equation">
                 \[
@@ -248,7 +248,7 @@
                 \]
               </div>
               <p>
-                where \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
+                where \(k\) is the input dimension of MLP, \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
                 \(\texttt{FE}_\phi\) maps an input coordinate to a feature embedding by a weighted sum of the individual 
                 features \(f_i\) of each Gaussian. All Gaussian parameters \(\phi\) are learnable and iteratively updated throughout the training process. 
                 This dynamic adjustment, akin to adaptive mesh-based numerical methods, optimizes the structure of the underlying Gaussian functions to accurately approximate the solution functions. 
