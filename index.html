@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations">
+  <meta name="keywords" content="PIG, Physics-Informed Gaussians">
+  <!-- <meta name="viewport" content="width=is-full-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .equation {
+      text-align: center;
+      margin: 20px 0;
+    }
+    h4 {
+      text-align: left;
+      font-size: 1.3em;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</h1>
+          <div class="is-size-4 publication-authors">
+            <!-- NeurIPS 2023 (spotlight) -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/NamGyuKang">Namgyu Kang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://jaeminoh.github.io/">Jaemin Oh</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.youngjoonhong.com/">Youngjoon Hong</a><sup>2</sup><sup>†</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup><sup>†</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Sungkyunkwan University,</span>
+            <span class="author-block"><sup>2</sup>KAIST</span>
+          </div>
+          
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/NamGyuKang/Physics-Informed-Gaussians"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small"> 
+  <div class="hero-body">
+    <div class="container">
+      <video id="teaser" autoplay controls muted loop playsinline height="100%">
+<!-- <section class="hero teaser"> -->
+  <!-- <div class="container is-max-desktop"> -->
+    <!-- <div class="hero-body"> -->
+      <!-- <video id="teaser" autoplay controls muted loop playsinline height="100%"> -->
+        <!-- <video class="full-width" controls muted loop> -->
+          <source src="./static/videos/Gaussians_Allen_Cahn_new.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Training visualization. Each Gaussian is displayed as the ellipsoids, exhibiting different positions and shapes according to the Gaussian parameters.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <h2 class="title is-3" style="text-align: center; font-size: 125%;">
+      <!-- <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2> -->
+        <span style="color: red;">TL;DR:</span> <b>We propose Physics-Informed Gaussians, an adaptive mesh representation where Gaussian parameters are trained to dynamically adjust their positions and shapes.</b>
+      </h2>
+      <p>
+        The approximation of Partial Differential Equations (PDEs) using neural networks has seen significant advancements through Physics-Informed Neural Networks (PINNs). 
+        Despite their straightforward optimization framework and flexibility in implementing various PDEs, PINNs often suffer from limited accuracy due to the spectral bias of Multi-Layer Perceptrons (MLPs), which struggle to effectively learn high-frequency and non-linear components. 
+        Recently, parametric mesh representations in combination with neural networks have been investigated as a promising approach to eliminate the inductive biases of neural networks. 
+        However, they usually require very high-resolution grids and a large number of collocation points to achieve high accuracy while avoiding overfitting issues. 
+        In addition, the fixed positions of the mesh parameters restrict their flexibility, making it challenging to accurately approximate complex PDEs. 
+        To overcome these limitations, <b>we propose Physics-Informed Gaussians (PIGs), which combine feature embeddings using Gaussian functions with a lightweight neural network. 
+        Our approach uses trainable parameters for the mean and variance of each Gaussian, allowing for dynamic adjustment of their positions and shapes during training. 
+        This adaptability enables our model to optimally approximate PDE solutions, unlike models with fixed parameter positions.</b>
+        Furthermore, the proposed approach maintains the same optimization framework used in PINNs, allowing us to benefit from their excellent properties. 
+        Experimental results show the competitive performance of our model across various PDEs, demonstrating its potential as a robust tool for solving complex PDEs.
+
+        <!-- We propose <b>Physics-Informed Gaussians (PIGs)</b>, which combine feature embeddings using Gaussian functions with a lightweight neural network. 
+        Our approach uses trainable parameters for the mean and variance of each Gaussian, allowing for dynamic adjustment of their positions and shapes during training. 
+        This adaptability enables our model to optimally approximate PDE solutions, unlike models with fixed parameter positions. 
+        We addressed the limitations of fixed parametric mesh representations by employing adaptive parametric mesh and overcame the spectral bias of neural networks.
+        Furthermore, the proposed approach maintains the same optimization framework used in PINNs, allowing us to benefit from their excellent properties. 
+        Experimental results show the competitive performance of our model across various PDEs, demonstrating its potential as a robust tool for solving complex PDEs.             -->
+      </p>
+        </br></br></br>
+      <!-- <img class="img-responsive" src="./static/images/main_fig.jpg" alt="PIG main fig"> -->
+          <!-- <p>
+            Given the same number of training points, we reduced the computational cost by 1,394&times; in FLOPs and achieved 62&times; speed-up in wall-clock training time on commodity GPUs while achieving higher accuracy.
+          </p> -->
+        </p>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+    <!--/ Abstract. -->
+
+  <!-- </br></br></br> -->
+    <!-- Method. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths"> -->
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <p class="title is-3 mt-5 has-text-centered"> Architecture </p>
+    <h2 class="title is-3" style="text-align: center; font-size: 125%;">  
+        <div class="content has-text-justified">
+          <img class="img-responsive" src="./static/images/main_fig.jpg" width="100%" alt="PIG main fig">
+        </div>  
+        </h2>
+          <p>
+            (a) PINN directly takes input coordinates (four collocation points) as inputs and produces outputs. 
+            (b) Parametric grids first map input coordinates to output feature vectors. 
+            Each vertex in the grids holds learnable parameters, and output features are extracted through interpolation schemes. 
+            (c) The proposed PIG consists of numerous Gaussians moving around within the input domain, and their shapes change dynamically during training. 
+            Each Gaussian has learnable parameters, and a feature vector for an input coordinate is the weighted sum of the learnable parameters based on the distance to the Gaussians.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</br>
+
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <p class="title is-3 mt-5 has-text-centered"> Method </p>
+      <h2 class="title is-3" style="text-align: center; font-size: 125%;">  
+        <!-- <h2 class="title is-3">Method</h2> -->
+        <div class="architecture-image">
+          <img src="./static/images/pig_nn.jpg" width="75%" style="display: block; margin: 0 auto;">
+          <div class="content has-text-justified">
+            <div class="content">
+            </br>
+          </h2>
+            
+            <h4>1. Learnable Gaussian Feature Embedding \(\texttt{FE}_\phi\)</h4>
+              <p>
+                Let \(\phi = \{(\mu_i, \Sigma_i, f_i): i=1, \dots, N\}\) be the set of Gaussian model parameters, 
+                where \(\mu_i \in \mathbb{R}^{d}\) is a position of a Gaussian, \(\Sigma_i \in \mathbb{S}^{d}_{++}\) 
+                is a covariance matrix, and each Gaussian has a learnable feature embedding 
+                \(f_i \in \mathbb{R}\). Given an input coordinate \(x \in \mathbb{R}^d\), the learnable Gaussian feature embedding 
+                \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}\) is extracted as follows:
+              </p>
+              <div class="equation">
+                \[
+                  \texttt{FE}_\phi(x) = \sum_{i=1}^N f_i G_i(x), \quad 
+                  G_i(x) = e^{-\frac{1}{2}(x - \mu_i)^\top \Sigma_i^{-1} (x - \mu_i)}.
+                \]
+              </div>
+              <p>
+                where \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
+                \(\texttt{FE}_\phi\) maps an input coordinate to a feature embedding by a weighted sum of the individual 
+                features \(f_i\) of each Gaussian. All Gaussian parameters \(\phi\) are learnable and iteratively updated throughout the training process. 
+                This dynamic adjustment, akin to adaptive mesh-based numerical methods, optimizes the structure of the underlying Gaussian functions to accurately approximate the solution functions. 
+                
+                <!-- Gaussian features distant from the input coordinates do not contribute  -->
+                <!-- to the final feature embedding, while only neighboring Gaussian features remain significant.  -->
+                <!-- Similar to the previous parametric grid methods, which obtain feature embeddings by interpolating only  -->
+                <!-- neighboring vertices, this locality encourages the model to capture high-frequency details by effectively  -->
+                <!-- alleviating spectral bias. -->
+              </p>
+            </br>
+              <h4>2. Solution Approximation with Gaussians followed by a Lightweight Neural Network \(\texttt{NN}_\theta\) </h4>
+              <p>
+                Once the features are extracted, a neural network processes the feature to produce the solution outputs.
+              </p>
+              <div class="equation">
+                \[
+                  u_{\phi,\theta}(x) = \texttt{NN}_\theta(\texttt{FE}_\phi(x)).
+                \]
+              </div>
+              <p>
+                where \(\texttt{NN}_\theta\) is a lightweight MLP with the parameter \(\theta\). 
+                We employed a single hidden layer MLP with a limited number of hidden units, resulting in negligible additional computational costs.
+                <!-- Even though Gaussian features are already universal approximators (see 3.3), using a small MLP at the end improved the solution accuracy by a large margin compared to the method without the MLP, generating the solution directly from Gaussian representations. -->
+              </p>
+            </div>
+
+            
+
+            <!-- <div>
+              <p>
+                
+                \[
+                  \texttt{FE}_\phi(x) = \sum_{i=1}^N f_i G_i(x), \quad 
+                  G_i(x) = e^{-\frac{1}{2}(x - \mu_i)^\top \Sigma_i^{-1} (x - \mu_i)}
+                \]
+              </p>
+            </div> -->
+          </div>  
+          </div>
+      </div>
+    <!-- </div> -->
+    <!--/ Method. -->
+  <!-- </div> -->
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+
+      <!-- Low-rank decomposition. -->
+      <!-- <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Low-Rank Representation</h2>
+          <div class="content has-text-justified">
+            <p>
+              Due to its architecture and structural coordinate sampling, SPINN learns a low-rank decomposed representation of a solution.
+            </p>
+          </div>
+          <div class="architecture-image">
+            <img src="./static/images/project_page2.png">
+          </div>
+        </div>
+      </div> -->
+      <!--/ Low-rank decomposition. -->
+
+      <!-- Forward-mode AD. -->
+      <!-- <div class="column">
+        <h2 class="title is-3">Forward-Mode AD</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <div class="content has-text-justified">
+              <p>
+                Our separated function architecture leverages forward-mode automatic differentiation (AD) to efficiently calculate the derivative.
+              </p>
+            </div>
+            <div class="architecture-image">
+              <img src="./static/images/forward AD.png">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+    <!--/ Forward-mode AD. -->
+  </br></br></br>
+    <!-- Visualized Results. -->
+    <!-- <div class="container is-max-desktop"> -->
+      <!-- Abstract. -->
+      <!-- <div class="columns is-centered has-text-centered"> -->
+        <!-- <p class="title is-3 mt-5 has-text-centered"> Method </p> -->
+        <!-- <h2 class="title is-3" style="text-align: center; font-size: 125%;">   -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Visualized Results</h2>
+        <!-- Klein-Gordon Equation. -->
+        <h3 class="title is-4">Klein-Gordon Equation</h3>
+        <div class="content has-text-centered">
+          <p>
+            $$\large{\frac{\partial^2 u}{\partial t^2}-\left(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}\right)+u^2=f}$$
+          </p>
+          
+        <video id="teaser" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/Gaussians_Klein_Gordon_4.mp4" type="video/mp4">
+            </video>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+
+        <!--/ Klein-Gordon Equation. -->
+      
+        <!-- Non-linear Diffusion Equation. -->
+        <!-- <h3 class="title is-4">Non-linear Diffusion Equation</h3>
+        <div class="content has-text-centered">
+          <p>
+            $$\large{
+              \frac{\partial u}{\partial t}
+              =\alpha\left\{
+                \frac{\partial}{\partial x}\left(u\frac{\partial u}{\partial x}\right)
+                +\frac{\partial}{\partial y}\left(u\frac{\partial u}{\partial y}\right)
+              \right\}
+            }$$
+          </p>
+          <video id="nonlin_diffusion" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/nonlin_diffusion.mp4"
+                      type="video/mp4">
+          </video>
+        </div>
+      </br></br></br> -->
+      <!-- Flow-Mixing Equation. -->
+      <h3 class="title is-4">Flow-Mixing Equation</h3>
+      <div class="content has-text-centered">
+        <p>
+          $$\large{\frac{\partial u}{\partial t}+a\frac{\partial u}{\partial x}+b\frac{\partial u}{\partial y}=0}$$
+        </p>
+        <video id="teaser" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/Gaussians_Flow_Mixing_1.mp4"
+                    type="video/mp4">
+        </video>
+      </div>
+        <!-- Flow-Mixing Equation. -->
+        <!-- Helmholtz Equation. -->
+        <h3 class="title is-4">Helmholtz Equation</h3>
+        <div class="content has-text-centered">
+          <p>
+            $$\large{\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}+k^2u=q}$$
+          </p>
+          <video id="teaser" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Gaussians_Helmholtz_2.mp4"
+                      type="video/mp4">
+          </video>
+        </div>
+        <!--/ Helmholtz Equation. -->
+      <!-- </br></br></br> -->
+        <!-- Klein-Gordon Equation. -->
+        <!-- <h3 class="title is-4">Klein-Gordon Equation</h3>
+        <div class="content has-text-centered">
+          <p>
+            $$\large{\frac{\partial^2 u}{\partial t^2}-(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2})+u^2=f}$$
+          </p>
+          <video id="teaser" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/klein-gordon.mp4"
+                      type="video/mp4">
+          </video>
+        </div> -->
+        <!--/ Klein-Gordon Equation. -->
+      </br></br></br>
+      </div>
+    </div>
+    <!--/ Visualized Results. -->
+  </div>
+</div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{cho2023separable,
+  author    = {Cho, Junwoo and Nam, Seungtae and Yang, Hyunmo and Yun, Seok-Bae and Hong, Youngjoon and Park, Eunbyung},
+  title     = {Separable Physics-Informed Neural Networks},
+  journal   = {Advances in Neural Information Processing Systems},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This template is a modification of <a href="https://nerfies.github.io/">Nerfies' project page</a>.
+            Find the original source code <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
