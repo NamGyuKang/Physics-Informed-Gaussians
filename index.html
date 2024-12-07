@@ -81,10 +81,10 @@
             <span class="author-block">
               <a href="https://jaeminoh.github.io/">Jaemin Oh</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://www.youngjoonhong.com/">Youngjoon Hong</a><sup>2</sup><sup>†</sup>,
+              <a href="https://www.youngjoonhong.com/">Youngjoon Hong</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup><sup>†</sup>
+              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup>
             </span>
           </div>
           <div class="is-size-5 publication-authors">
@@ -236,7 +236,7 @@
             <h4>1. Learnable Gaussian Feature Embedding \(\texttt{FE}_\phi\)</h4>
               <p>
                 Let \(\phi = \{(\mu_i, \Sigma_i, f_i): i=1, \dots, N\}\) be the set of Gaussian model parameters, 
-                where \(\mu_i \in \mathbb{R}^{k \times d}\) is a position of a Gaussian, \(\Sigma_i \in {\mathbb{S}^{d}_{++}}^{k}\) 
+                where \(\mu_i \in \mathbb{R}^{d}\) is a position of a Gaussian, \(\Sigma_i \in \mathbb{S}^{d}_{++}\) 
                 is a covariance matrix, and each Gaussian has a learnable feature embedding 
                 \(f_i \in \mathbb{R}^{k}\). Given an input coordinate \(x \in \mathbb{R}^d\), the learnable Gaussian feature embedding 
                 \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{k}\) is extracted as follows:
