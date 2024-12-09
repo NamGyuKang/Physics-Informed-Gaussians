@@ -163,15 +163,17 @@ body {
 }
 
 
-/* .depth { */
-/* background: linear-gradient(90deg,  */
-/* #ff0000, 
-#ff7f00, 
-#ffff00, 
-#00ff00, 
-#0000ff, 
-#4b0082, 
-#8b00ff  
+.depth {
+background: linear-gradient(90deg, 
+  #b22222,  
+  #d2691e,  
+  #f5a83c,
+  /* #b8860b, */
+    #6b8e23,  
+    #4682b4,  
+    #5f9ea0,  
+    #000080,  
+    #800080  
 );
 background-clip: text;
 color: transparent;
@@ -180,7 +182,7 @@ background-size: 150%;
 } */
 
 /* Hover effect for "Depth" gradient */
-/* .depth:hover { */
-  /* background-position: right center;
+.depth:hover {
+  background-position: right center;
   transform: scale(1.1); 
-} */
+}
