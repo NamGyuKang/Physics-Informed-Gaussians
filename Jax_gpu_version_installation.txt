@@ -1,0 +1,13 @@
+Jax gpu version installation
+Please follow the steps below.
+
+pip install jaxlib==0.3.25+cuda11.cudnn82 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install jax==0.3.25
+pip install --upgrade numpy==1.24.2 
+pip install --upgrade scipy==1.12.0
+pip install optax==0.1.0
+pip install tqdm
+pip install flax==0.4.1
+pip install --upgrade optax==0.1.2
+pip install ml_collections
+

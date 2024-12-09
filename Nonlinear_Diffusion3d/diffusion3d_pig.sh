@@ -1,0 +1,1 @@
+XLA_PYTHON_CLIENT_PREALLOCATE=false python diffusion3d.py --data_dir=./data/diffusion3d --model=pinn --equation=diffusion3d --nc=16 --seed=100 --lr=0.001 --epochs=100000 --mlp=mlp --n_layers=2 --features=16 --out_dim=1 --pos_enc=0 --log_iter=1000 --plot_iter=1000 --mlp_dim 4 --num_gaussian 4000 --grid_range 1. --sigmas_range 0.1

@@ -1,0 +1,1 @@
+XLA_PYTHON_CLIENT_PREALLOCATE=false python klein_gordon3d.py --model=pinn --equation=klein_gordon3d --nc=16 --nc_test=50 --seed=100 --lr=0.01 --epochs=50001 --mlp=mlp --n_layers=2 --features=16 --out_dim=1 --pos_enc=0 --k=2 --log_iter=1000 --plot_iter=10000 --mlp_dim 4 --num_gaussian 100 --grid_range 2. --sigmas_range 0.5
