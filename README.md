@@ -33,7 +33,7 @@ cd Physics-Informed-Gaussians
 ### Create JAX environment (Flow-Mixing, Klein-Gordon, Nonliner-Diffusion Eq.)
 Please follow the steps in the Jax_gpu_version_installation.txt file to install JAX GPU version.
 
-### Create pytorch environment (Helmholtz Eq.)
+### Create Pytorch environment (Helmholtz Eq.)
 The code is tested with Python (3.8, 3.9) and PyTorch (1.11, 11.2) with CUDA (>=11.3). 
 You can create an anaconda environment with those requirements by running:
 
