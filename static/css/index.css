@@ -178,11 +178,24 @@ background: linear-gradient(90deg,
 background-clip: text;
 color: transparent;
 transition: background-position 0.5s ease, transform 0.3s ease;
-background-size: 150%;
-} */
+background-size: 150%; /* Ensures smooth gradient effect */
+display: inline-block;
+}
 
 /* Hover effect for "Depth" gradient */
 .depth:hover {
-  background-position: right center;
-  transform: scale(1.1); 
+background-position: right center;
+transform: scale(1.1);
 }
+
+/* background-clip: text;
+color: transparent;
+transition: background-position 0.5s ease, transform 0.3s ease;
+background-size: 150%; */
+/* } */ */
+
+/* Hover effect for "Depth" gradient */
+/* .depth:hover { */
+  /* background-position: right center; Shifts the gradient on hover */
+  /* transform: scale(1.1); Slight zoom effect */
+/* } */
