@@ -56,4 +56,9 @@ or with CUDA 11.6, Pytorch 1.12, Python 3.8,
 
 - CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh
 ```
-## 3.
+## Contact
+Contact [Namgyu Kang](mailto:kangnamgyu27@gmail.com) if you have any further questions.
+
+
+## Acknowledgements
+This project is built on top of several outstanding repositories: [SPINN](https://github.com/stnamjef/SPINN), [PIXEL](https://github.com/NamGyuKang/PIXEL), [JAXPI](https://github.com/PredictiveIntelligenceLab/jaxpi). We thank the original authors for opensourcing their excellent work.
