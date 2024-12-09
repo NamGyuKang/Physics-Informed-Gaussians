@@ -56,8 +56,4 @@ or with CUDA 11.6, Pytorch 1.12, Python 3.8,
 
 - CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh
 ```
-
-<<<<<<< HEAD
-=======
-[[Project page]](https://namgyukang.github.io/Physics-Informed-Gaussians/)
->>>>>>> de2fa6aea46ec6f4326a888654f1cca8b9ee063f
+## 3.
