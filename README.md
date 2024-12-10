@@ -1,6 +1,9 @@
 <p align="center">
-  <h1 align="center">PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</h1>
-  <p align="center">
+<h1 align="center">
+  <img src="./assets/icon.png" alt="icon" style="width: 30px; vertical-align: top; margin-right: 3px;">
+    PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations
+</h1>
+   <p align="center">
     <a href="https://github.com/NamGyuKang">Namgyu Kang</a>
     ·
     <a href="https://jaeminoh.github.io/">Jaemin Oh</a>
