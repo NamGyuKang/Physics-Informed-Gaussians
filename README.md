@@ -1,6 +1,6 @@
 <p align="center">
 <h1 align="center">
-  <img src="./assets/icon.png" alt="icon" style="width: 30px; vertical-align: middle; margin-right: 3px;  position: relative; top: -3px;">
+  <img src="./assets/icon.png" alt="icon" style="width: 30px; vertical-align: -4px; margin-right: 3px;">
     PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations
 </h1>
    <p align="center">
