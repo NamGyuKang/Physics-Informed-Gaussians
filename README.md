@@ -37,25 +37,17 @@ Please follow the steps in the Jax_gpu_version_installation.txt file to install 
 The code is tested with Python (3.8, 3.9) and PyTorch (1.11, 11.2) with CUDA (>=11.3). 
 You can create an anaconda environment with those requirements by running:
 
-```
-if you use CUDA 11.3, Pytorch 1.11, Python 3.9,
-  - conda env create -f CUDA_11_3_Pytorch_1_11_Py_3_9.yml
-or with CUDA 11.6, Pytorch 1.12, Python 3.8,
-  - conda env create -f CUDA_11_6_Pytorch_1_12_Py_3_8.yml
-  
--  conda activate pig
-```
+- if you use CUDA 11.3, Pytorch 1.11, Python 3.9, `conda env create -f CUDA_11_3_Pytorch_1_11_Py_3_9.yml`
+- or with CUDA 11.6, Pytorch 1.12, Python 3.8, `conda env create -f CUDA_11_6_Pytorch_1_12_Py_3_8.yml`
+- and then `conda activate pig`
 
 ## 2. Run the code in each folder
-```
-- CUDA_VISIBLE_DEVICES=0 bash flow_mixing3d_pig.sh
 
-- CUDA_VISIBLE_DEVICES=0 bash helmholtz2d_pig.sh
+- `CUDA_VISIBLE_DEVICES=0 bash flow_mixing3d_pig.sh`
+- `CUDA_VISIBLE_DEVICES=0 bash helmholtz2d_pig.sh`
+- `CUDA_VISIBLE_DEVICES=0 bash klein_gordon3d_pig.sh`
+- `CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh`
 
-- CUDA_VISIBLE_DEVICES=0 bash klein_gordon3d_pig.sh
-
-- CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh
-```
 ## Contact
 Contact [Namgyu Kang](mailto:kangnamgyu27@gmail.com) if you have any further questions.
 
