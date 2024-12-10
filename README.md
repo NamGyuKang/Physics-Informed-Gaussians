@@ -18,9 +18,11 @@
 
 <p align="center">
   <a href="">
-    <img src="./assets/teaser.jpg" alt="Logo" width="100%">
+    <img src="./assets/main_fig_.jpg" alt="Logo" width="100%">
   </a>
 </p>
+
+https://github.com/user-attachments/assets/8094ba67-9dd4-4fe6-aabc-a17c342293a1
 
 ## Quick Start
 
