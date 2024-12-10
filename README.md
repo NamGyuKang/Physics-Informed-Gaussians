@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="">
-    <img src="./assets/main_fig_.jpg" alt="Logo" width="100%">
+    <img src="./assets/teaser.jpg" alt="Logo" width="100%">
   </a>
 </p>
 
