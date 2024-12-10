@@ -97,7 +97,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://openreview.net/"
+                <a href="https://arxiv.org/abs/2412.05994"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -250,7 +250,9 @@
               <p>
                 where \(k\) is the input dimension of MLP, \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
                 \(\texttt{FE}_\phi\) maps an input coordinate to a feature embedding by a weighted sum of the individual 
-                features \(f_i\) of each Gaussian. All Gaussian parameters \(\phi\) are learnable and iteratively updated throughout the training process. 
+                features \(f_i\) of each Gaussian. To enhance the expressive capability, we can use different Gaussians for each feature dimension. 
+                Further details are provided in Appendix A.1.
+                All Gaussian parameters \(\phi\) are learnable and iteratively updated throughout the training process. 
                 This dynamic adjustment, akin to adaptive mesh-based numerical methods, optimizes the structure of the underlying Gaussian functions to accurately approximate the solution functions. 
                 
                 <!-- Gaussian features distant from the input coordinates do not contribute  -->
@@ -426,19 +428,20 @@
 </div>
 </section>
 
-
-<!-- <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{cho2023separable,
-  author    = {Cho, Junwoo and Nam, Seungtae and Yang, Hyunmo and Yun, Seok-Bae and Hong, Youngjoon and Park, Eunbyung},
-  title     = {Separable Physics-Informed Neural Networks},
-  journal   = {Advances in Neural Information Processing Systems},
-  year      = {2023},
+    <pre><code>@misc{kang2024pigphysicsinformedgaussiansadaptive,
+      title={PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations}, 
+      author={Namgyu Kang and Jaemin Oh and Youngjoon Hong and Eunbyung Park},
+      year={2024},
+      eprint={2412.05994},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2412.05994}, 
 }</code></pre>
   </div>
-</section> -->
-
+</section>
 
 <footer class="footer">
   <div class="container">
