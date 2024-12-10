@@ -22,9 +22,9 @@
   </a>
 </p>
 
-https://github.com/user-attachments/assets/8094ba67-9dd4-4fe6-aabc-a17c342293a1
+https://github.com/user-attachments/assets/ddfd6949-f459-40b8-bcb6-67558b980c09
 
-https://github.com/user-attachments/assets/9a31d1c9-f104-4b99-965f-617485bbd0dd
+https://github.com/user-attachments/assets/e6289032-aa43-4adc-a62f-8b015a0bf73f
 
 ## Quick Start
 
