@@ -22,9 +22,13 @@
   </a>
 </p>
 
-https://github.com/user-attachments/assets/ddfd6949-f459-40b8-bcb6-67558b980c09
+<video src="https://github.com/user-attachments/assets/ddfd6949-f459-40b8-bcb6-67558b980c09" autoplay muted loop></video>
 
-https://github.com/user-attachments/assets/e6289032-aa43-4adc-a62f-8b015a0bf73f
+<video src="https://github.com/user-attachments/assets/e6289032-aa43-4adc-a62f-8b015a0bf73f" autoplay muted loop></video>
+
+<!-- https://github.com/user-attachments/assets/ddfd6949-f459-40b8-bcb6-67558b980c09
+
+https://github.com/user-attachments/assets/e6289032-aa43-4adc-a62f-8b015a0bf73f -->
 
 ## Quick Start
 
