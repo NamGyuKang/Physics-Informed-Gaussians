@@ -51,9 +51,22 @@ You can create an anaconda environment with those requirements by running:
 - `CUDA_VISIBLE_DEVICES=0 bash klein_gordon3d_pig.sh`
 - `CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh`
 
+## Citation
+```
+@misc{kang2024pigphysicsinformedgaussiansadaptive,
+      title={PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations}, 
+      author={Namgyu Kang and Jaemin Oh and Youngjoon Hong and Eunbyung Park},
+      year={2024},
+      eprint={2412.05994},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2412.05994}, 
+}
+```
+
 ## Contact
 Contact [Namgyu Kang](mailto:kangnamgyu27@gmail.com) if you have any further questions.
 
-
 ## Acknowledgements
 This project is built on top of several outstanding repositories: [SPINN](https://github.com/stnamjef/SPINN), [PIXEL](https://github.com/NamGyuKang/PIXEL), [JAXPI](https://github.com/PredictiveIntelligenceLab/jaxpi). We thank the original authors for opensourcing their excellent work.
+
