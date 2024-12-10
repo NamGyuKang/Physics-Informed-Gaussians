@@ -72,7 +72,9 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title"><span class="depth">PIG</span>: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</h1>
+          <h1 class="title is-2 publication-title" style="font-family: 'Montserrat', sans-serif;"><span class="depth">PIG</span>: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</h1>
+          <!-- <h1 class="title is-2 publication-title"><span class="depth">PIG</span>: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations</h1> -->
+        <!-- </h1> -->
           <div class="is-size-4 publication-authors">
           </div>
           <div class="is-size-5 publication-authors">
@@ -183,9 +185,6 @@
       </p>
         </br></br></br>
       <!-- <img class="img-responsive" src="./static/images/main_fig.jpg" alt="PIG main fig"> -->
-          <!-- <p>
-            Given the same number of training points, we reduced the computational cost by 1,394&times; in FLOPs and achieved 62&times; speed-up in wall-clock training time on commodity GPUs while achieving higher accuracy.
-          </p> -->
         </p>
         </div>
       <!-- </div> -->
@@ -277,18 +276,6 @@
                 <!-- Even though Gaussian features are already universal approximators (see 3.3), using a small MLP at the end improved the solution accuracy by a large margin compared to the method without the MLP, generating the solution directly from Gaussian representations. -->
               </p>
             </div>
-
-            
-
-            <!-- <div>
-              <p>
-                
-                \[
-                  \texttt{FE}_\phi(x) = \sum_{i=1}^N f_i G_i(x), \quad 
-                  G_i(x) = e^{-\frac{1}{2}(x - \mu_i)^\top \Sigma_i^{-1} (x - \mu_i)}
-                \]
-              </p>
-            </div> -->
           </div>  
           </div>
       </div>
@@ -302,42 +289,6 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
 
-
-      <!-- Low-rank decomposition. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Low-Rank Representation</h2>
-          <div class="content has-text-justified">
-            <p>
-              Due to its architecture and structural coordinate sampling, SPINN learns a low-rank decomposed representation of a solution.
-            </p>
-          </div>
-          <div class="architecture-image">
-            <img src="./static/images/project_page2.png">
-          </div>
-        </div>
-      </div> -->
-      <!--/ Low-rank decomposition. -->
-
-      <!-- Forward-mode AD. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Forward-Mode AD</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <div class="content has-text-justified">
-              <p>
-                Our separated function architecture leverages forward-mode automatic differentiation (AD) to efficiently calculate the derivative.
-              </p>
-            </div>
-            <div class="architecture-image">
-              <img src="./static/images/forward AD.png">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div> -->
-    <!--/ Forward-mode AD. -->
   </br></br></br>
     <!-- Visualized Results. -->
     <!-- <div class="container is-max-desktop"> -->
@@ -351,7 +302,7 @@
         <h2 class="title is-3">Visualized Results</h2>
         <!-- Klein-Gordon Equation. -->
         <h3 class="title is-4">Klein-Gordon Equation</h3>
-        <div class="content has-text-centered">
+        <!-- <div class="content has-text-centered"> -->
           <p>
             $$\large{\frac{\partial^2 u}{\partial t^2}-\left(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}\right)+u^2=f}$$
           </p>
@@ -359,33 +310,16 @@
         <video id="teaser" autoplay controls muted loop playsinline height="100%">
           <source src="./static/videos/Gaussians_Klein_Gordon_4.mp4" type="video/mp4">
             </video>
-      </div>
+      <!-- </div> -->
     <!-- </div> -->
   <!-- </div> -->
 
         <!--/ Klein-Gordon Equation. -->
-      
-        <!-- Non-linear Diffusion Equation. -->
-        <!-- <h3 class="title is-4">Non-linear Diffusion Equation</h3>
-        <div class="content has-text-centered">
-          <p>
-            $$\large{
-              \frac{\partial u}{\partial t}
-              =\alpha\left\{
-                \frac{\partial}{\partial x}\left(u\frac{\partial u}{\partial x}\right)
-                +\frac{\partial}{\partial y}\left(u\frac{\partial u}{\partial y}\right)
-              \right\}
-            }$$
-          </p>
-          <video id="nonlin_diffusion" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/nonlin_diffusion.mp4"
-                      type="video/mp4">
-          </video>
-        </div>
-      </br></br></br> -->
+      <!-- </br></br></br> -->
+    </br></br></br></br>
       <!-- Flow-Mixing Equation. -->
       <h3 class="title is-4">Flow-Mixing Equation</h3>
-      <div class="content has-text-centered">
+      <!-- <div class="content has-text-centered"> -->
         <p>
           $$\large{\frac{\partial u}{\partial t}+a\frac{\partial u}{\partial x}+b\frac{\partial u}{\partial y}=0}$$
         </p>
@@ -393,11 +327,12 @@
           <source src="./static/videos/Gaussians_Flow_Mixing_1.mp4"
                     type="video/mp4">
         </video>
-      </div>
+      <!-- </div> -->
         <!-- Flow-Mixing Equation. -->
         <!-- Helmholtz Equation. -->
+    </br></br></br></br>
         <h3 class="title is-4">Helmholtz Equation</h3>
-        <div class="content has-text-centered">
+        <!-- <div class="content has-text-centered"> -->
           <p>
             $$\large{\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}+k^2u=q}$$
           </p>
@@ -405,21 +340,35 @@
             <source src="./static/videos/Gaussians_Helmholtz_2.mp4"
                       type="video/mp4">
           </video>
+          <p>
+            2D Helmholtz equation with a low wavenumber \((a_1, a_2) = (1, 4)\). PIG achieved a relative \(L^2\) error of \(2.22 \times 10^{-5}\), while the parametric fixed grid method PIXEL reached a relative \(L^2\) error of \(8.63\times 10^{-4}\). 
+          </p>
+        </br></br>
+        <div class="hh-image">
+          <img src="./static/images/hh_high_freq.jpg" width="100%" style="display: block; margin: 0 auto;">
         </div>
-        <!--/ Helmholtz Equation. -->
-      <!-- </br></br></br> -->
-        <!-- Klein-Gordon Equation. -->
-        <!-- <h3 class="title is-4">Klein-Gordon Equation</h3>
+        <p>
+          2D Helmholtz equation with a high wavenumber \((a_1, a_2) = (10, 10)\). PIG achieved a relative \(L^2\) error of \(7.09\times 10^{-3}\), while the parametric fixed grid method PIXEL reached a relative \(L^2\) error of \(7.47\times 10^{-2}\). 
+          PINN failed to converge.
+        </p>
+        <!-- </div> -->
+
+      </br></br></br></br>
+        <h3 class="title is-4">Lid-Driven Cavity Equation</h3>
         <div class="content has-text-centered">
           <p>
-            $$\large{\frac{\partial^2 u}{\partial t^2}-(\frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2})+u^2=f}$$
+            $$\nabla \cdot \mathbf{u} = 0$$
+            $$\rho (\mathbf{u} \cdot \nabla)\mathbf{u} = -\nabla p + \mu \nabla^2 \mathbf{u}$$
           </p>
-          <video id="teaser" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/klein-gordon.mp4"
-                      type="video/mp4">
-          </video>
-        </div> -->
-        <!--/ Klein-Gordon Equation. -->
+        <div class="LDC-image">
+          <img src="./static/images/LDC.jpg" width="100%" style="display: block; margin: 0 auto;">
+        </div>
+      </br>
+        <p>
+          Lid-driven cavity flow problem. PIG achieved \(4.04 \times 10^{-4}\) relative \(L^2\) error whereas the baseline parametric grid method PGCAN resulted in \(1.22\times 10^{-3}\).
+        </p>
+      </div>  
+        <!--/ Helmholtz Equation. -->
       </br></br></br>
       </div>
     </div>
