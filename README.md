@@ -61,14 +61,11 @@ You can create an anaconda environment with those requirements by running:
 If you find this code useful in your research, please consider citing us!
 
 ```bibtex
-@misc{kang2024pigphysicsinformedgaussiansadaptive,
-      title={PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations}, 
-      author={Namgyu Kang and Jaemin Oh and Youngjoon Hong and Eunbyung Park},
-      year={2024},
-      eprint={2412.05994},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2412.05994}, 
+@article{kang2024pig,
+  title={PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations},
+  author={Kang, Namgyu and Oh, Jaemin and Hong, Youngjoon and Park, Eunbyung},
+  journal={arXiv preprint arXiv:2412.05994},
+  year={2024}
 }
 ```
 
