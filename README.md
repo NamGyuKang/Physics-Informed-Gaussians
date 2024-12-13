@@ -58,7 +58,9 @@ You can create an anaconda environment with those requirements by running:
 - `CUDA_VISIBLE_DEVICES=0 bash diffusion3d_pig.sh`
 
 ## Citation
-```
+If you find this code useful in your research, please consider citing us!
+
+```bibtex
 @misc{kang2024pigphysicsinformedgaussiansadaptive,
       title={PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations}, 
       author={Namgyu Kang and Jaemin Oh and Youngjoon Hong and Eunbyung Park},
