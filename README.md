@@ -4,7 +4,6 @@
     PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations
 </h1>
 <h3 align="center">
-  <style="width: 15px; vertical-align: -4px; margin-right: 3px;">
     ICLR 2025
 </h3>
    <p align="center">
