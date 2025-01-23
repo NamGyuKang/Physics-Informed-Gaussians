@@ -3,10 +3,10 @@
   <img src="./assets/icon.png" alt="icon" style="width: 30px; vertical-align: -4px; margin-right: 3px;">
     PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations
 </h1>
-<h3 align="center">
+<h2 align="center">
   <style="width: 15px; vertical-align: -4px; margin-right: 3px;">
     ICLR 2025
-</h3>
+</h2>
    <p align="center">
     <a href="https://github.com/NamGyuKang">Namgyu Kang</a>
     ·
