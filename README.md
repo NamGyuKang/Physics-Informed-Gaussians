@@ -15,7 +15,7 @@
     ·
     <a href="https://silverbottlep.github.io/">Eunbyung Park</a>    
   </p>
-  <h3 align="center"><a href="https://arxiv.org/">Paper</a> | <a href="https://namgyukang.github.io/Physics-Informed-Gaussians/">Project Page</a> </h3>
+  <h3 align="center"><a href="https://arxiv.org/abs/2412.05994">Paper</a> | <a href="https://namgyukang.github.io/Physics-Informed-Gaussians/">Project Page</a> </h3>
   <div align="center"></div>
 </p>
 
