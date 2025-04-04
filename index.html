@@ -168,23 +168,16 @@
         <span style="color: red;">TL;DR:</span> <b>We propose Physics-Informed Gaussians, an adaptive mesh representation where Gaussian parameters are trained to dynamically adjust their positions and shapes.</b>
       </h2>
       <p>
-        The approximation of Partial Differential Equations (PDEs) using neural networks has seen significant advancements through Physics-Informed Neural Networks (PINNs). 
-        Despite their straightforward optimization framework and flexibility in implementing various PDEs, PINNs often suffer from limited accuracy due to the spectral bias of Multi-Layer Perceptrons (MLPs), which struggle to effectively learn high-frequency and non-linear components. 
-        Recently, parametric mesh representations in combination with neural networks have been investigated as a promising approach to eliminate the inductive biases of neural networks. 
-        However, they usually require very high-resolution grids and a large number of collocation points to achieve high accuracy while avoiding overfitting issues. 
-        In addition, the fixed positions of the mesh parameters restrict their flexibility, making it challenging to accurately approximate complex PDEs. 
-        To overcome these limitations, <b>we propose Physics-Informed Gaussians (PIGs), which combine feature embeddings using Gaussian functions with a lightweight neural network. 
-        Our approach uses trainable parameters for the mean and variance of each Gaussian, allowing for dynamic adjustment of their positions and shapes during training. 
-        This adaptability enables our model to optimally approximate PDE solutions, unlike models with fixed parameter positions.</b>
-        Furthermore, the proposed approach maintains the same optimization framework used in PINNs, allowing us to benefit from their excellent properties. 
-        Experimental results show the competitive performance of our model across various PDEs, demonstrating its potential as a robust tool for solving complex PDEs.
-
-        <!-- We propose <b>Physics-Informed Gaussians (PIGs)</b>, which combine feature embeddings using Gaussian functions with a lightweight neural network. 
+        The numerical approximation of partial differential equations (PDEs) using neural networks has seen significant advancements through Physics-Informed Neural Networks (PINNs). 
+        Despite their straightforward optimization framework and flexibility in implementing various PDEs, PINNs often suffer from limited accuracy due to the spectral bias of Multi-Layer Perceptrons (MLPs), 
+        which struggle to effectively learn high-frequency and nonlinear components. Recently, parametric mesh representations in combination with neural networks have been investigated as a promising approach to eliminate the inductive bias of MLPs.
+        However, they usually require high-resolution grids and a large number of collocation points to achieve high accuracy while avoiding overfitting.
+        In addition, the fixed positions of the mesh parameters restrict their flexibility, making accurate approximation of complex PDEs challenging.
+        To overcome these limitations, we propose Physics-Informed Gaussians (PIGs), which combine feature embeddings using Gaussian functions with a lightweight neural network. 
         Our approach uses trainable parameters for the mean and variance of each Gaussian, allowing for dynamic adjustment of their positions and shapes during training. 
         This adaptability enables our model to optimally approximate PDE solutions, unlike models with fixed parameter positions. 
-        We addressed the limitations of fixed parametric mesh representations by employing adaptive parametric mesh and overcame the spectral bias of neural networks.
         Furthermore, the proposed approach maintains the same optimization framework used in PINNs, allowing us to benefit from their excellent properties. 
-        Experimental results show the competitive performance of our model across various PDEs, demonstrating its potential as a robust tool for solving complex PDEs.             -->
+        Experimental results show the competitive performance of our model across various PDEs, demonstrating its potential as a robust tool for solving complex PDEs.
       </p>
         </br></br></br>
       <!-- <img class="img-responsive" src="./static/images/main_fig.jpg" alt="PIG main fig"> -->
@@ -238,10 +231,15 @@
             <h4>1. Learnable Gaussian Feature Embedding \(\texttt{FE}_\phi\)</h4>
               <p>
                 Let \(\phi = \{(\mu_i, \Sigma_i, f_i): i=1, \dots, N\}\) be the set of Gaussian model parameters, 
+                where \(\mu_i \in \mathbb{R}^d\) is a position of a Gaussian and \(\Sigma_i \in \mathbb{S}^{d}_{++}\) 
+                is a covariance matrix. Each Gaussian has a learnable feature embedding \(f_i \in \mathbb{R}^k\) for a feature dimension \(k\). 
+                For simplicity, we consider \(k=1\). Given an input coordinate \(x \in \mathbb{R}^d\), 
+                the learnable embedding \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}\) extracts Gaussian features as follows.
+                <!-- Let \(\phi = \{(\mu_i, \Sigma_i, f_i): i=1, \dots, N\}\) be the set of Gaussian model parameters, 
                 where \(\mu_i \in \mathbb{R}^{d}\) is a position of a Gaussian, \(\Sigma_i \in \mathbb{S}^{d}_{++}\) 
                 is a covariance matrix, and each Gaussian has a learnable feature embedding 
                 \(f_i \in \mathbb{R}^{k}\). Given an input coordinate \(x \in \mathbb{R}^d\), the learnable Gaussian feature embedding 
-                \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{k}\) is extracted as follows:
+                \(\texttt{FE}_\phi:\mathbb{R}^d \rightarrow \mathbb{R}^{k}\) is extracted as follows: -->
               </p>
               <div class="equation">
                 \[
@@ -250,10 +248,13 @@
                 \]
               </div>
               <p>
-                where \(k\) is the input dimension of MLP, \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
+                where \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
+                \(\texttt{FE}_\phi\) maps an input coordinate to a feature embedding by a weighted sum of the individual features \(f_i\) of each Gaussian.
+                Extensions to \(k>1\) for enhanced expressiveness are provided in Appendix A.1.
+                <!-- where \(k\) is the input dimension of MLP, \(N\) is the number of Gaussians and \(G_i\) represents the \(i\)-th Gaussian function. 
                 \(\texttt{FE}_\phi\) maps an input coordinate to a feature embedding by a weighted sum of the individual 
                 features \(f_i\) of each Gaussian. To enhance the expressive capability, we can use different Gaussians for each feature dimension. 
-                Further details are provided in Appendix A.1.
+                Further details are provided in Appendix A.1. -->
                 All Gaussian parameters \(\phi\) are learnable and iteratively updated throughout the training process. 
                 This dynamic adjustment, akin to adaptive mesh-based numerical methods, optimizes the structure of the underlying Gaussian functions to accurately approximate the solution functions. 
                 
@@ -264,7 +265,7 @@
                 <!-- alleviating spectral bias. -->
               </p>
             </br>
-              <h4>2. Solution Approximation with Gaussians followed by a Lightweight Neural Network \(\texttt{NN}_\theta\) </h4>
+              <h4>2. Learnable Feature Refinement with \(\texttt{NN}_\theta\) </h4>
               <p>
                 Once the features are extracted, a neural network processes the feature to produce the solution outputs.
               </p>
